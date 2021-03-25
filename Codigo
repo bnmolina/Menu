@@ -1,0 +1,49 @@
+
+function Menu(){
+
+Write-Host "*************************"
+Write-Host "___________Menu__________"
+Write-Host "1. Ver version"
+Write-Host "2. Ver fecha"
+Write-Host "3. Ver ayuda"
+Write-Host "4. Abrir black de notas"
+Write-Host "5. Abrir calculadora"
+Write-Host "0. Salir"
+Write-Host "*************************"
+}
+
+do{
+Menu
+try{
+
+[int]$op=Read-Host "Digite una opcion"
+
+cls
+
+if($op -ge 1 -and $op -le 5){
+
+switch ($op){
+
+1{ Get-Host }
+
+2{ Get-Date }
+
+3{ Get-Help }
+
+4{ Notepad }
+
+5{ Calc }
+
+}elseif ($op -ne 0){
+cls
+Write-Output "Opcion no valida"}
+}
+
+}catch{
+
+$op = 6
+
+Write-Output "Formato no valido"
+}
+
+}while($op -ne 0)
